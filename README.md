@@ -11,5 +11,5 @@ CREATE TABLE _test(a int[]); INSERT INTO _test(a) (SELECT (SELECT array_agg(i) F
 ab -n 100000 -c 1000 http://127.0.0.1:{8000/3000}/{json/fib/fact/db_bytes/db_test}
 ```
 
-## Picture
+## Result in my computer
 ![perf](https://i.imgur.com/zSaWTkF.png)
