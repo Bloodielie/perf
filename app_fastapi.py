@@ -1,10 +1,17 @@
+import asyncpg
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse, UJSONResponse, ORJSONResponse
 
 app = FastAPI()
 
 response = {"test": "1", "test2": 2, "test3": True}
+pool = None
 
+
+@app.on_event("startup")
+async def startup_event():
+    global pool
+    pool = await asyncpg.create_pool("postgres://postgres:1234@127.0.0.1:5432/test", min_size=1, max_size=5)
 
 def fac(n):
     if n == 0:
@@ -69,4 +76,18 @@ async def fib_find():
 @app.get("/sync_fib")
 async def fib_find_sunc():
     fibonacci(15)
+    return "OK"
+
+
+@app.get("/db_bytes")
+async def db_bytes():
+    async with pool.acquire() as con:
+        print(await con.fetch("SELECT * FROM _bytes"))
+    return "OK"
+
+
+@app.get("/db_test")
+async def db_test():
+    async with pool.acquire() as con:
+        await con.fetch("SELECT * FROM _test")
     return "OK"

@@ -4,3 +4,4 @@ orjson
 ujson
 uvicorn
 gunicorn
+asyncpg
