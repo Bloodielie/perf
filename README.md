@@ -28,6 +28,6 @@ bash {gunicorn-uvicorn-fast-fastapi.sh/gunicorn-uvicorn-fast-starlette.sh}
 
 ## Database drivers
 + python
-  + ![asyncpg](https://github.com/MagicStack/asyncpg)
+  + [asyncpg](https://github.com/MagicStack/asyncpg)
 + node.js
-  + ![node-postgres](https://github.com/brianc/node-postgres)
+  + [node-postgres](https://github.com/brianc/node-postgres)
