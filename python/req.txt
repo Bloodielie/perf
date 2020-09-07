@@ -1,0 +1,10 @@
+fastapi
+uvloop
+orjson
+ujson
+uvicorn
+gunicorn
+asyncpg
+aiopg
+bottle
+flask

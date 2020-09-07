@@ -8,7 +8,7 @@ CREATE TABLE _test(a int[]); INSERT INTO _test(a) (SELECT (SELECT array_agg(i) F
 
 ## Apache-benchmark testing
 ```bash
-ab -n 100000 -c 1000 http://127.0.0.1:{8000/3000}/{json/fib/fact/db_bytes/db_test}
+ab -n 100000 -c 1000 http://127.0.0.1:8000/{json/fib/fact/db_bytes/db_test}
 ```
 
 ## Js run
@@ -18,16 +18,17 @@ pm2-runtime ecosystem.config.js
 
 ## Python run
 ```bash
-bash {gunicorn-uvicorn-fast-fastapi.sh/gunicorn-uvicorn-fast-starlette.sh}
+bash <sh file>
 ```
 
 
 ## Result in my computer
-![perf](https://i.imgur.com/zSaWTkF.png)
+![perf](https://i.imgur.com/yjQ4amz.png)
 
 
 ## Database drivers
 + python
   + [asyncpg](https://github.com/MagicStack/asyncpg)
+  + [aiopg](https://github.com/aio-libs/aiopg)
 + node.js
   + [node-postgres](https://github.com/brianc/node-postgres)
