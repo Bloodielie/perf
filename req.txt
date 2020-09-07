@@ -1,7 +1,0 @@
-fastapi
-uvloop
-orjson
-ujson
-uvicorn
-gunicorn
-asyncpg
